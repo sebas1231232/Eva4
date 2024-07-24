@@ -1,59 +1,59 @@
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Select, MenuItem, InputLabel, FormControl, Checkbox, ListItemText } from '@mui/material';
-import { guardarJugadorEnLocalStorage } from '../utilidades/localStorageUtils';
+import { guardarplayerEnLocalStorage } from '../utilidades/localStorageUtils';
 
 const dificultad = ['Facil', 'Normal', 'Dificil', 'Muy Dificil'];
 const ClasificacionCompetitiva = ['Bronce', 'Plata', 'Oro', 'Diamante', 'Mitico'];
 
-const Formulario = ({ jugadorEditando, onGuardar }) => {
-  const [jugador, setJugador] = useState({
-    nombre: '',
+const Formulario = ({ playerEditando, onGuardar }) => {
+  const [player, setplayer] = useState({
+    nick: '',
     edad: '',
     nacionalidad: '',
-    equipo: '',
+    puntos: '',
     dificultad: '',
-    clasi: [],
+    clasi: '',
   });
 
   useEffect(() => {
     if (playerEditando) {
       setplayer(playerEditando);
     }
-  }, [jugadorEditando]);
+  }, [playerEditando]);
 
   const manejarCambio = (e) => {
     const { name, value } = e.target;
-    setJugador((prev) => ({ ...prev, [name]: value }));
+    setplayer((prev) => ({ ...prev, [name]: value }));
   };
 
   const manejarCambioMultiple = (e) => {
     const { name, value } = e.target;
-    setJugador((prev) => ({ ...prev, [name]: value }));
+    setplayer((prev) => ({ ...prev, [name]: value }));
   };
 
   const manejarSubmit = (e) => {
     e.preventDefault();
-    if (!jugador.nombre.trim() || !jugador.edad.trim() || !jugador.nacionalidad.trim() || !jugador.equipo.trim() || !jugador.posicion.trim() || !jugador.habilidades.length) {
+    if (!player.nick.trim() || !player.edad.trim() || !player.nacionalidad.trim() || !player.puntos.trim() || !player.dificultad.trim() || !player.clasi.trim()) {
 
     }
-    guardarJugadorEnLocalStorage(jugador);
+    guardarplayerEnLocalStorage(player);
     onGuardar();
-    setJugador({
-      nombre: '',
+    setplayer({
+      nick: '',
       edad: '',
       nacionalidad: '',
-      equipo: '',
-      posicion: '',
-      habilidades: [],
+      puntos: '',
+      dificultad: '',
+      clasi: '',
     });
   };
 
   return (
     <form onSubmit={manejarSubmit} className="container">
       <TextField
-        label="Nombre"
-        name="nombre"
-        value={jugador.nombre}
+        label="Nick"
+        name="nick"
+        value={player.nick}
         onChange={manejarCambio}
         fullWidth
         margin="normal"
@@ -61,7 +61,7 @@ const Formulario = ({ jugadorEditando, onGuardar }) => {
       <TextField
         label="Edad"
         name="edad"
-        value={jugador.edad}
+        value={player.edad}
         onChange={manejarCambio}
         fullWidth
         margin="normal"
@@ -69,47 +69,44 @@ const Formulario = ({ jugadorEditando, onGuardar }) => {
       <TextField
         label="Nacionalidad"
         name="nacionalidad"
-        value={jugador.nacionalidad}
+        value={player.nacionalidad}
         onChange={manejarCambio}
         fullWidth
         margin="normal"
       />
       <TextField
-        label="Equipo"
-        name="equipo"
-        value={jugador.equipo}
+        label="Puntos"
+        name="puntos"
+        value={player.puntos}
         onChange={manejarCambio}
         fullWidth
         margin="normal"
       />
       <FormControl fullWidth margin="normal">
-        <InputLabel>Posición</InputLabel>
+        <InputLabel>Dificultad</InputLabel>
         <Select
-          value={jugador.posicion}
+          value={player.dificultad}
           onChange={manejarCambio}
-          name="posicion"
+          name="dificultad"
         >
-          {posicionesDisponibles.map((posicion) => (
-            <MenuItem key={posicion} value={posicion}>
-              {posicion}
+          {dificultad.map((dificultad) => (
+            <MenuItem key={dificultad} value={dificultad}>
+              {dificultad}
             </MenuItem>
           ))}
         </Select>
       </FormControl>
       <FormControl fullWidth margin="normal">
-        <InputLabel>Habilidades</InputLabel>
+        <InputLabel>Clasificacion</InputLabel>
         <Select
-          multiple
-          value={jugador.habilidades}
+          value={player.clasi}
           onChange={manejarCambioMultiple}
-          name="habilidades"
-          renderValue={(selected) => selected.join(', ')}
+          name="clasi"
         >
-          {habilidadesDisponibles.map((habilidad) => (
-            <MenuItem key={habilidad} value={habilidad}>
-              <Checkbox checked={jugador.habilidades.indexOf(habilidad) > -1} />
-              <ListItemText primary={habilidad} />
-            </MenuItem>
+          {ClasificacionCompetitiva.map((clasi) => (
+            <MenuItem key={clasi} value={clasi}>
+            {clasi}
+          </MenuItem>
           ))}
         </Select>
       </FormControl>

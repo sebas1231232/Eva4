@@ -7,27 +7,27 @@ const Tabla = ({ players, onEditar, onEliminar }) => {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Nombre</TableCell>
+            <TableCell>nick</TableCell>
             <TableCell>Edad</TableCell>
             <TableCell>Nacionalidad</TableCell>
-            <TableCell>Equipo</TableCell>
-            <TableCell>Posición</TableCell>
-            <TableCell>Habilidades</TableCell>
+            <TableCell>Puntos</TableCell>
+            <TableCell>Dificultad</TableCell>
+            <TableCell>Clasificacion</TableCell>
             <TableCell>Acciones</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {jugadores.map((jugador) => (
-            <TableRow key={jugador.id}>
-              <TableCell>{jugador.nombre}</TableCell>
-              <TableCell>{jugador.edad}</TableCell>
-              <TableCell>{jugador.nacionalidad}</TableCell>
-              <TableCell>{jugador.equipo}</TableCell>
-              <TableCell>{jugador.posicion}</TableCell>
-              <TableCell>{jugador.habilidades.join(', ')}</TableCell>
+          {players.map((player) => (
+            <TableRow key={player.id}>
+              <TableCell>{player.nick}</TableCell>
+              <TableCell>{player.edad}</TableCell>
+              <TableCell>{player.nacionalidad}</TableCell>
+              <TableCell>{player.puntos}</TableCell>
+              <TableCell>{player.dificultad}</TableCell>
+              <TableCell>{player.clasi}</TableCell>
               <TableCell>
-                <Button onClick={() => onEditar(jugador)} color="primary">Editar</Button>
-                <Button onClick={() => onEliminar(jugador.id)} color="secondary">Eliminar</Button>
+                <Button onClick={() => onEditar(player)} color="primary">Editar</Button>
+                <Button onClick={() => onEliminar(player.id)} color="secondary">Eliminar</Button>
               </TableCell>
             </TableRow>
           ))}

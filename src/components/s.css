@@ -1,9 +1,7 @@
 
 body {
-  background-color: #177500be; 
+  background-color: #2a0cd8be; 
   color: #3f0505;
-  font-family: 'sans-serif;
-
 }
 
 .container {
@@ -102,16 +100,16 @@ button:active, .MuiButton-root:active {
   margin-right: 8px;
 }
 
-/* Custom Scrollbar */
+
 ::-webkit-scrollbar {
   width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e1e1e; /* Dark gray */
+  background: #1e1e1e;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #000000; /* Light blue */
+  background-color: #000000;
   border-radius: 20px;
 }

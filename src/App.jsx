@@ -17,8 +17,8 @@ const App = () => {
     setplayerEditando(null);
   };
 
-  const manejarEditar = (jugador) => {
-    setplayerEditando(jugador);
+  const manejarEditar = (player) => {
+    setplayerEditando(player);
   };
 
   const manejarEliminar = (id) => {

@@ -1,23 +1,23 @@
 export const obtenerplayerDeLocalStorage = () => {
-    const player = localStorage.getItem('player');
-    return player ? JSON.parse(player) : [];
+    const players = localStorage.getItem('players');
+    return players ? JSON.parse(players) : [];
   };
   
-  export const guardarplayerEnLocalStorage = (jugador) => {
-    const player = obtenerplayerDeLocalStorage();
+  export const guardarplayerEnLocalStorage = (player) => {
+    const players = obtenerplayerDeLocalStorage();
     if (player.id) {
-      const playerIndex = player.findIndex(j => j.id === jugador.id);
-      jugadores[playerIndex] = jugador;
+      const playerIndex = players.findIndex(j => j.id === player.id);
+      players[playerIndex] = player;
     } else {
       player.id = Date.now();
-      player.push(jugador);
+      players.push(player);
     }
-    localStorage.setItem('player', JSON.stringify(player));
+    localStorage.setItem('players', JSON.stringify(players));
   };
   
   export const eliminarplayerDeLocalStorage = (id) => {
     const players = obtenerplayerDeLocalStorage();
-    const playersActualizados = players.filter(players => players.id !== id);
-    localStorage.setItem('jugadores', JSON.stringify(playersActualizados));
+    const playersActualizados = players.filter(player => player.id !== id);
+    localStorage.setItem('players', JSON.stringify(playersActualizados));
   };
   

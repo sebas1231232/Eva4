@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>Registro de players</h1>
+      <h1>Clasificacion de Players</h1>
       <Formulario onGuardar={manejarGuardar} playerEditando={playerEditando} />
       <Tabla players={players} onEditar={manejarEditar} onEliminar={manejarEliminar} />
     </div>

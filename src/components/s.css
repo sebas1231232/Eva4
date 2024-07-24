@@ -1,6 +1,8 @@
 
 body {
-  background-color: #2a0cd8be; 
+  margin: auto;
+  background-image: linear-gradient(120deg,rgba(0, 162, 255, 0.762),
+  rgba(0, 0, 255, 0.445)),url(../img/pngtree-game-concept-competitive-battle-vs-match-background-design-image_388420.jpg);
   color: #3f0505;
 }
 
@@ -8,7 +10,8 @@ body {
   padding: 20px;
   margin: auto;
   max-width: 1300px;
-  background-color: #00ff15; 
+  background-image: linear-gradient(120deg,rgba(3, 68, 128, 0.808),
+  rgba(255, 255, 255, 0.445)),url(../img/purple-blue-gradient-background-with-light-blue-thick-oval-lines-vector.jpg);
 }
 
 
@@ -72,7 +75,6 @@ button:active, .MuiButton-root:active {
   transform: scale(0.95);
 }
 
-/* Table Styles */
 .MuiTableContainer-root {
   background-color: #ffffff; 
   border-radius: 10px;
